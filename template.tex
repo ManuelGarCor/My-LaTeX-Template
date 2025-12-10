@@ -1,0 +1,59 @@
+% -------------------------------------------------------------------------------------------------
+% Archivo: template.tex
+% Descripción: Plantilla básica en LaTeX para trabajos académicos
+% Autor: Manuel García Cortés
+% -------------------------------------------------------------------------------------------------
+
+\documentclass[a4paper, twoside]{article}
+\usepackage{estilo}
+\graphicspath{{img/}}
+
+
+% Configuración del documento
+\title{Un título espectacular}
+\author{Un autor increíble}
+\date{\today}
+
+\institute{Departamento de Informática y Automática, Universidad de Salamanca, España. \\ 
+Máster universitario en Sistemas Inteligentes: Asignatura XYZ}
+
+% Cabeceras running
+\settitlerunning{Título corto}
+\setauthorrunning{Autor corto}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    Un resumen conciso del trabajo que destaca los puntos clave y objetivos principales del estudio realizado.
+    
+    \keywords{palabras clave, separadas, por, comas}
+\end{abstract}
+
+
+\newpage
+
+% Este bloque genera el índice de contenidos y de figuras
+% ---------------------------------------------------------
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\listoftables
+\newpage
+% ---------------------------------------------------------
+
+\newpage
+
+% Contenido del documento aquí
+\section{Introducción}
+Aquí comienza la introducción del trabajo académico. Se presentan los objetivos y el contexto del estudio.
+
+\newpage
+
+% Bibliografía
+\begin{thebibliography}{9}
+    \bibitem{ref1} Autor, Título del libro, Editorial, Año. (Siguiendo el formato IEEE)
+\end{thebibliography}
+
+\end{document}
