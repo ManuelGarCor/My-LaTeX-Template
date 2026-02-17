@@ -113,6 +113,19 @@
 \renewcommand{\labelitemii}{$\circ$}     % Level 2  
 \renewcommand{\labelitemiii}{$-$}        % Level 3
 
+% ===== PAQUETES PARA NÚMEROS Y UNIDADES =====
+\RequirePackage{siunitx}
+\sisetup{
+    output-decimal-marker = {,},   % coma decimal (estilo español)
+    group-separator = {.},          % punto como separador de miles
+    per-mode = symbol,              % usa / para "por"
+    exponent-product = \cdot,       % producto en notación científica con \cdot
+    inter-unit-product = \cdot,     % separador entre unidades compuestas
+    list-final-separator = { y },   % para listas con \SIlist
+    list-pair-separator = { y },    % para pares
+    range-phrase = { a },           % para rangos con \SIrange
+}
+
 
 % ===== PERSONALIZACIÓN DE TABLAS =====
 \renewcommand{\arraystretch}{1.2} % Da un poco más de aire a las filas
