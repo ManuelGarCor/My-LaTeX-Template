@@ -1,5 +1,5 @@
 # Variables configurables
-MAIN ?= main.tex    # Nombre del archivo principal (por defecto: main.tex)
+MAIN ?= template.tex    # Nombre del archivo principal (por defecto: template.tex)
 BASE  = $(basename $(MAIN))
 
 # Targets fachada (phony)
