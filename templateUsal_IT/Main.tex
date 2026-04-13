@@ -1,0 +1,355 @@
+%===========================================================================
+% CONFIGURACIÓN DEL DOCUMENTO
+%===========================================================================
+\documentclass[12pt,a4paper,spanish,twoside]{article}
+\usepackage[a4paper,top=3cm,bottom=3cm,left=3cm,right=3cm]{geometry}
+
+% Separación de los párrafos
+\setlength{\parskip}{0.6cm}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,activeacute]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{wrapfig}
+\usepackage{url}
+\usepackage{epsfig}
+\usepackage{titlesec}
+
+% Tablas muy largas que ocupan más de una página (se parten)
+\usepackage{longtable}
+
+% Paquete para subrayado, tachado, etc.
+\usepackage{ulem}
+\normalem
+
+% Incluir paragraph como nivel de sección numerado
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\makeatother
+
+\usepackage{listings}
+\usepackage{color}
+\definecolor{listinggray}{gray}{0.9}
+\lstset{language=Matlab}
+\lstset{keywordstyle=\color{red}\bfseries\underbar}
+
+% Encabezados y pie de página
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+
+% Incluir índices y bibliografía en el índice general
+\usepackage[nottoc]{tocbibind}
+
+\makeatother
+\usepackage[pageref]{backref}
+\renewcommand{\backreftwosep}{ y~}
+\renewcommand{\backreflastsep}{ y~}
+
+\renewcommand*{\backref}[1]{}
+\renewcommand{\backrefalt}[4]{%
+\ifcase #1 %
+{\unskip\nobreak\hfil\penalty50\null\hfil%
+\mbox{\nobreakspace\small[\textsl{No citado: usado como
+referencia}]}%
+\parfillskip=0pt\finalhyphendemerits=0\par}
+\or
+{\unskip\nobreak\hfil\penalty50\null\hfil%
+\mbox{\nobreakspace\small[\textsl{Citado en
+p\'ag.\nobreakspace#2.}]}%
+\parfillskip=0pt\finalhyphendemerits=0\par}
+\else
+{\unskip\nobreak\hfil\penalty50\null\hfil%
+\mbox{\nobreakspace\small[\textsl{Citado en
+p\'ags.\nobreakspace#2.}]}%
+\parfillskip=0pt\finalhyphendemerits=0\par}
+\fi
+}
+
+\usepackage{setspace}
+\setlength\headheight{14.6pt}
+
+
+%===========================================================================
+% INICIO DEL DOCUMENTO
+%===========================================================================
+\begin{document}
+
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\listtablename}{Indice de tablas}
+
+
+%===========================================================================
+% PORTADA
+%===========================================================================
+\begin{titlepage}
+
+\vspace{4.3cm}
+
+\begin{flushright}
+	{\large \bf Informe Técnico - Technical Report}\\
+	{\large \bf DPTOIA-IT-BORRADOR}\\
+	{\large \bf \today}
+\end{flushright}
+
+\begin{center}
+\vspace{5.2cm}
+%-----------------------------------------------------------
+% CONTENIDO: Título del informe técnico
+{\Large \bf Título del Informe Técnico}\\
+%-----------------------------------------------------------
+
+\vspace{2cm}
+%-----------------------------------------------------------
+% CONTENIDO: Nombres de los autores
+{\bf Autor 1}\\
+{\bf Autor 2}\\
+{\bf Autor 3}\\
+{\bf Autor 4}\\
+%-----------------------------------------------------------
+\end{center}
+
+\vspace{3.9cm}
+\begin{figure}[h!]
+\begin{center}
+\footnotesize
+\includegraphics[width=2.94cm]{Imagen1.eps}
+\includegraphics[width=2.88cm]{Imagen2.eps}
+\end{center}
+\end{figure}
+
+\vspace{1.5cm}
+\begin{center}
+{\bf Departamento de Informática y Automática}\\
+{\bf Universidad de Salamanca}
+\end{center}
+\end{titlepage}
+
+
+%===========================================================================
+% PÁGINA DE REVISORES E INFORMACIÓN DE AUTORES 
+%===========================================================================
+\thispagestyle{empty}
+\vspace{4.9cm}
+\begin{flushleft}
+Revisado por:\\
+\hspace{1cm}{Dr. - Pendiente de Asignar -}\\
+\hspace{1cm}{Dr. - Pendiente de Asignar -}
+
+\vspace{1cm}
+Aprobado en el Consejo de Departamento de <<fecha>>
+
+\vspace{1cm}
+Información de los Autores:\\[0.5cm]
+
+%-----------------------------------------------------------
+% CONTENIDO: Datos de los autores (nombre, afiliación, correo)
+\hspace{1cm}{\footnotesize Autor 1}\\
+\hspace{1.5cm}{\footnotesize 1ª Línea Autor1}\\
+\hspace{1.5cm}{\footnotesize 2ª Línea Autor1}\\
+\hspace{1.5cm}{\footnotesize 3ª Línea Autor1}\\
+\hspace{1.5cm}{\footnotesize correo@autor1.com}\\[0.5cm]
+
+\hspace{1cm}{\footnotesize Autor 2}\\
+\hspace{1.5cm}{\footnotesize 1ª Línea Autor2}\\
+\hspace{1.5cm}{\footnotesize 2ª Línea Autor2}\\
+\hspace{1.5cm}{\footnotesize 3ª Línea Autor2}\\
+\hspace{1.5cm}{\footnotesize correo@autor2.com}\\[0.5cm]
+
+\hspace{1cm}{\footnotesize Autor 3}\\
+\hspace{1.5cm}{\footnotesize 1ª Línea Autor3}\\
+\hspace{1.5cm}{\footnotesize 2ª Línea Autor3}\\
+\hspace{1.5cm}{\footnotesize 3ª Línea Autor3}\\
+\hspace{1.5cm}{\footnotesize correo@autor3.com}\\[0.5cm]
+
+\hspace{1cm}{\footnotesize Autor 4}\\
+\hspace{1.5cm}{\footnotesize 1ª Línea Autor4}\\
+\hspace{1.5cm}{\footnotesize 2ª Línea Autor4}\\
+\hspace{1.5cm}{\footnotesize 3ª Línea Autor4}\\
+\hspace{1.5cm}{\footnotesize correo@autor4.com}\\[0.5cm]
+%-----------------------------------------------------------
+
+\vfill
+Este documento puede ser libremente distribuido.\\
+(c) 2006 Departamento de Informática y Automática - Universidad de Salamanca.
+\end{flushleft}
+
+
+%===========================================================================
+% RESUMEN / ABSTRACT 
+%===========================================================================
+\newpage
+\renewcommand{\thepage}{\roman{page}}
+\setcounter{page}{1}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[LE,RO]{\textbf{\thepage}}
+\fancyfoot[LO,RE]{\textbf{DPTOIA-IT-BORRADOR}}
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\vspace{6.5cm}
+\textbf{Resumen}
+
+%-----------------------------------------------------------
+% CONTENIDO: Resumen en castellano (150-250 palabras)
+Se incluye el resumen en castellano.
+%-----------------------------------------------------------
+
+\vspace{1cm}
+\textbf{Abstract}
+
+%-----------------------------------------------------------
+% CONTENIDO: Resumen en inglés (150-250 palabras)
+Se incluye el resumen en inglés.
+%-----------------------------------------------------------
+
+
+%===========================================================================
+% ÍNDICES - NO MODIFICAR
+%===========================================================================
+\newpage
+\setlength{\parskip}{0.8mm}
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\setlength{\parskip}{2.5mm}
+
+\newpage
+
+
+%===========================================================================
+% CUERPO DEL DOCUMENTO -   DE CABECERAS
+%===========================================================================
+\renewcommand{\thepage}{\arabic{page}}
+\ifodd\thepage
+\else
+  .
+  \thispagestyle{empty}
+  \newpage
+\fi
+\setcounter{page}{1}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+
+%-----------------------------------------------------------
+% CONTENIDO: Sustituir "Título corto" y "Apellido et al."
+\fancyhead[LE]{\textbf{Título corto del informe}}
+\fancyhead[RO]{\textbf{Apellido et al.}}
+%-----------------------------------------------------------
+
+\fancyfoot[LE,RO]{\textbf{\thepage}}
+\fancyfoot[LO,RE]{\textbf{DPTOIA-IT-BORRADOR}}
+
+
+%===========================================================================
+% SECCIÓN 1: INTRODUCCIÓN
+%===========================================================================
+\section{Introducción}
+\label{sec:introduccion}
+
+%-----------------------------------------------------------
+% CONTENIDO: Motivación, contexto y objetivos del trabajo
+Texto de introducción. Describir la motivación, el contexto del problema y
+los objetivos del trabajo. Incluir las referencias principales del área
+\cite{kreher05pseudocode}.
+%-----------------------------------------------------------
+
+
+%===========================================================================
+% SECCIÓN 2: (NOMBRE DE LA SECCIÓN PRINCIPAL)
+%===========================================================================
+\section{Nombre de la Sección}
+\label{sec:seccion2}
+
+%-----------------------------------------------------------
+% CONTENIDO: Desarrollo del tema principal
+Texto de la sección.
+%-----------------------------------------------------------
+
+\subsection{Subsección}
+\label{subsec:subseccion}
+
+%-----------------------------------------------------------
+% CONTENIDO: Detalle de la subsección
+Texto de la subsección.
+%-----------------------------------------------------------
+
+\subsubsection{Subsubsección}
+\label{subsubsec:subsubseccion}
+
+%-----------------------------------------------------------
+% CONTENIDO: Detalle adicional
+Texto de la subsubsección.
+%-----------------------------------------------------------
+
+% Ejemplo de figura
+\begin{figure}[h!]
+\begin{center}
+%-----------------------------------------------------------
+% CONTENIDO: Sustituir por la imagen correspondiente
+\includegraphics[width=8cm]{Imagen1.eps}
+%-----------------------------------------------------------
+\caption{Descripción de la figura.}
+\label{fig:figura1}
+\end{center}
+\end{figure}
+
+% Ejemplo de tabla
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+%-----------------------------------------------------------
+% CONTENIDO: Cabeceras y datos de la tabla
+\textbf{Columna 1} & \textbf{Columna 2} & \textbf{Columna 3} \\
+\hline
+Dato 1 & Dato 2 & Dato 3 \\
+Dato 4 & Dato 5 & Dato 6 \\
+%-----------------------------------------------------------
+\hline
+\end{tabular}
+\caption{Descripción de la tabla.}
+\label{tab:tabla1}
+\end{center}
+\end{table}
+
+
+%===========================================================================
+% SECCIÓN 3: (AÑADIR SECCIONES ADICIONALES SEGÚN SEA NECESARIO)
+%===========================================================================
+\section{Nombre de la Sección}
+\label{sec:seccion3}
+
+%-----------------------------------------------------------
+% CONTENIDO
+Texto de la sección.
+%-----------------------------------------------------------
+
+
+%===========================================================================
+% SECCIÓN FINAL: CONCLUSIONES
+%===========================================================================
+\section{Conclusiones}
+\label{sec:conclusiones}
+
+%-----------------------------------------------------------
+% CONTENIDO: Resumen de aportaciones y trabajo futuro
+Texto de conclusiones. Resumir los resultados obtenidos, las aportaciones
+del trabajo y las posibles líneas de trabajo futuro.
+%-----------------------------------------------------------
+
+
+%===========================================================================
+% BIBLIOGRAFÍA - NO MODIFICAR
+%===========================================================================
+\bibliographystyle{plain}
+\bibliography{Bibliografia}
+
+\end{document}
