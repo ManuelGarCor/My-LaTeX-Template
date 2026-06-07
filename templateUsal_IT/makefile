@@ -5,12 +5,12 @@ BASE  = $(basename $(MAIN))
 # Targets fachada (phony)
 .PHONY: all pdf clean cleanall
 
-all: pdf clean
+all: pdf
 
 pdf: $(MAIN)
 	@echo "Compilando documento LaTeX..."
 	@pdflatex -interaction=nonstopmode $(MAIN)
-	@if grep -q '\\citation' $(BASE).aux 2>/dev/null; then \
+	@if grep -q 'citation' $(BASE).aux 2>/dev/null; then \
 		echo "Procesando bibliografía con BibTeX..."; \
 		bibtex $(BASE); \
 	fi

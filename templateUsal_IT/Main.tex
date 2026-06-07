@@ -15,6 +15,37 @@
 \usepackage{epsfig}
 \usepackage{titlesec}
 
+% ─────────────────────────────────────────────
+% PAQUETE siunitx — configuración para español
+% ─────────────────────────────────────────────
+\usepackage{siunitx}
+\sisetup{
+    group-separator   = {.},         % separador de miles: punto
+    group-minimum-digits = 4,        % agrupar desde 4 dígitos (1000 → 1.000)
+    output-decimal-marker = {,},     % por si locale no lo aplica solo
+    per-mode          = symbol,      % a/b en lugar de a b^{-1}
+}
+\DeclareSIUnit{\bit}{bit}
+\DeclareSIUnit{\byte}{byte}
+\DeclareSIUnit{\GiB}{GiB}
+
+% --- Paquetes añadidos para el TFM (no forman parte de la plantilla original) ---
+\usepackage{booktabs}         % Líneas de tabla profesionales (\toprule, \midrule, \bottomrule)
+\usepackage{tabularx}         % Columnas de ancho variable en tablas
+\usepackage{amsmath}          % Entornos matemáticos extendidos
+\usepackage{amssymb}          % Símbolos matemáticos adicionales (\mathbb, \mathcal, etc.)
+\usepackage{graphicx}         % Soporte para imágenes PNG, JPG, PDF
+\usepackage{xcolor}           % Necesario para los colores
+\usepackage[numbers]{natbib}  % Para insertar citas narrativas,
+\usepackage{placeins}         % Para controlar la posición de las figuras con \FloatBarrier
+
+% Definición de colores
+\definecolor{altarelevancia}{RGB}{46,125,50}    % verde oscuro
+\definecolor{normalrelevancia}{RGB}{255,179,0}  % ámbar
+\definecolor{marginalrelevancia}{RGB}{230,81,0} % naranja quemado
+\definecolor{descartes}{RGB}{198,40,40}         % rojo
+% ---------------------------------------------------------------------------------
+
 % Tablas muy largas que ocupan más de una página (se parten)
 \usepackage{longtable}
 
@@ -47,8 +78,8 @@
 
 \makeatother
 \usepackage[pageref]{backref}
-\renewcommand{\backreftwosep}{ y~}
-\renewcommand{\backreflastsep}{ y~}
+\renewcommand{\backreftwosep}{ y }
+\renewcommand{\backreflastsep}{ y }
 
 \renewcommand*{\backref}[1]{}
 \renewcommand{\backrefalt}[4]{%
@@ -80,8 +111,7 @@ p\'ags.\nobreakspace#2.}]}%
 \begin{document}
 
 \renewcommand{\tablename}{Tabla}
-\renewcommand{\listtablename}{Indice de tablas}
-
+\renewcommand{\listtablename}{Índice de tablas}
 
 %===========================================================================
 % PORTADA
@@ -115,18 +145,18 @@ p\'ags.\nobreakspace#2.}]}%
 
 \vspace{3.9cm}
 \begin{figure}[h!]
-\begin{center}
-\footnotesize
-\includegraphics[width=2.94cm]{Imagen1.eps}
-\includegraphics[width=2.88cm]{Imagen2.eps}
-\end{center}
+    \begin{center}
+    \footnotesize
+        \includegraphics[width=3cm]{Imagen1-eps-converted-to.pdf}
+        \includegraphics[width=3cm]{Imagen2-eps-converted-to.pdf}
+    \end{center}
 \end{figure}
 
 \vspace{1.5cm}
-\begin{center}
-{\bf Departamento de Informática y Automática}\\
-{\bf Universidad de Salamanca}
-\end{center}
+    \begin{center}
+        {\bf Departamento de Informática y Automática}\\
+        {\bf Universidad de Salamanca}
+    \end{center}
 \end{titlepage}
 
 
@@ -137,14 +167,11 @@ p\'ags.\nobreakspace#2.}]}%
 \vspace{4.9cm}
 \begin{flushleft}
 Revisado por:\\
-\hspace{1cm}{Dr. - Pendiente de Asignar -}\\
-\hspace{1cm}{Dr. - Pendiente de Asignar -}
+\hspace{1cm}{Nombres de los autores}\\
+\hspace{1cm}{Nombres de los autores}
 
 \vspace{1cm}
-Aprobado en el Consejo de Departamento de <<fecha>>
-
-\vspace{1cm}
-Información de los Autores:\\[0.5cm]
+Información del Autor:\\[0.5cm]
 
 %-----------------------------------------------------------
 % CONTENIDO: Datos de los autores (nombre, afiliación, correo)
@@ -178,6 +205,65 @@ Este documento puede ser libremente distribuido.\\
 (c) 2006 Departamento de Informática y Automática - Universidad de Salamanca.
 \end{flushleft}
 
+%===========================================================================
+% DECLARACIÓN DE AUTORÍA
+%===========================================================================«»
+\newpage
+\thispagestyle{empty}
+
+\vspace*{0.5cm}
+    \begin{center}
+        {\textbf{Declaración de Autoría}}
+    \end{center}
+\vspace{0.5cm}
+
+\noindent Declaro que he redactado \underline{\hspace{1.5cm}} titulado \underline{\hspace{1.5cm}} del \underline{\hspace{1.5cm}} en el \underline{\hspace{1.5cm}} del curso académico \underline{\hspace{1.5cm}} de forma autónoma, con la ayuda de las fuentes y la literatura citadas en la bibliografía, y que he identificado como tales todas las partes tomadas de las fuentes y de la literatura indicada, textualmente o conforme a su sentido.
+
+\vspace{0.5cm}
+
+\noindent Además, soy conocedor de que \underline{\hspace{1.5cm}} forma parte de los trabajos de investigación que llevan a cabo mis directores \underline{\hspace{1.5cm}} dentro de los grupos de investigación \underline{\hspace{1.5cm}} de la Universidad de Salamanca y, en consecuencia, comparto con ellos la propiedad intelectual de los resultados alcanzados.
+
+\vspace{0.5cm}
+
+\noindent En Salamanca, a \underline{\hspace{1.5cm}} de \underline{\hspace{4cm}} de \underline{\hspace{1.5cm}}
+
+\vspace{1cm}
+
+\noindent Fdo.: \rule{8cm}{0.4pt}\\[0.3cm]
+\hspace*{1.5cm} \texttt{Autor}
+
+\vfill
+\begin{center}
+    \footnotesize
+    Facultad de Ciencias. Plaza de los Caídos, s/n, 37008 Salamanca.\\
+    Tel.: +34 923 29 44 00 ext.: 1513 $\cdot$ Fax: +34 923 29 45 14\\
+    \texttt{http://mastersi.usal.es} $\cdot$ \texttt{mastersi@usal.es}
+\end{center}
+
+%===========================================================================
+% AGRADECIMIENTOS
+%===========================================================================
+\newpage
+\thispagestyle{empty}
+
+\vspace*{0.5cm}
+    \begin{center}
+        {\bf Agradecimientos}
+    \end{center}
+\vspace{0.5cm}
+
+%-----------------------------------------------------------
+% CONTENIDO: Texto de agradecimientos
+En primer lugar, quisiera expresar mi más sincero agradecimiento ...
+
+%-----------------------------------------------------------
+
+\vfill
+\begin{flushright}
+    \textit{Firma del Autor}\\
+    \textit{Lugar, \the\year}
+\end{flushright}
+
 
 %===========================================================================
 % RESUMEN / ABSTRACT 
@@ -210,7 +296,7 @@ Se incluye el resumen en inglés.
 
 
 %===========================================================================
-% ÍNDICES - NO MODIFICAR
+% ÍNDICES
 %===========================================================================
 \newpage
 \setlength{\parskip}{0.8mm}
@@ -225,7 +311,7 @@ Se incluye el resumen en inglés.
 
 
 %===========================================================================
-% CUERPO DEL DOCUMENTO -   DE CABECERAS
+% CUERPO DEL DOCUMENTO
 %===========================================================================
 \renewcommand{\thepage}{\arabic{page}}
 \ifodd\thepage
@@ -249,107 +335,27 @@ Se incluye el resumen en inglés.
 
 
 %===========================================================================
-% SECCIÓN 1: INTRODUCCIÓN
+% INTRODUCCIÓN
 %===========================================================================
 \section{Introducción}
 \label{sec:introduccion}
 
-%-----------------------------------------------------------
-% CONTENIDO: Motivación, contexto y objetivos del trabajo
-Texto de introducción. Describir la motivación, el contexto del problema y
-los objetivos del trabajo. Incluir las referencias principales del área
-\cite{kreher05pseudocode}.
-%-----------------------------------------------------------
+Texto intro, \cite{kreher05pseudocode}. O también, \citet{ohl97emp}.
 
+\newpage
 
 %===========================================================================
-% SECCIÓN 2: (NOMBRE DE LA SECCIÓN PRINCIPAL)
+% BIBLIOGRAFÍA
 %===========================================================================
-\section{Nombre de la Sección}
-\label{sec:seccion2}
-
-%-----------------------------------------------------------
-% CONTENIDO: Desarrollo del tema principal
-Texto de la sección.
-%-----------------------------------------------------------
-
-\subsection{Subsección}
-\label{subsec:subseccion}
-
-%-----------------------------------------------------------
-% CONTENIDO: Detalle de la subsección
-Texto de la subsección.
-%-----------------------------------------------------------
-
-\subsubsection{Subsubsección}
-\label{subsubsec:subsubseccion}
-
-%-----------------------------------------------------------
-% CONTENIDO: Detalle adicional
-Texto de la subsubsección.
-%-----------------------------------------------------------
-
-% Ejemplo de figura
-\begin{figure}[h!]
-\begin{center}
-%-----------------------------------------------------------
-% CONTENIDO: Sustituir por la imagen correspondiente
-\includegraphics[width=8cm]{Imagen1.eps}
-%-----------------------------------------------------------
-\caption{Descripción de la figura.}
-\label{fig:figura1}
-\end{center}
-\end{figure}
-
-% Ejemplo de tabla
-\begin{table}[h!]
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-%-----------------------------------------------------------
-% CONTENIDO: Cabeceras y datos de la tabla
-\textbf{Columna 1} & \textbf{Columna 2} & \textbf{Columna 3} \\
-\hline
-Dato 1 & Dato 2 & Dato 3 \\
-Dato 4 & Dato 5 & Dato 6 \\
-%-----------------------------------------------------------
-\hline
-\end{tabular}
-\caption{Descripción de la tabla.}
-\label{tab:tabla1}
-\end{center}
-\end{table}
-
-
-%===========================================================================
-% SECCIÓN 3: (AÑADIR SECCIONES ADICIONALES SEGÚN SEA NECESARIO)
-%===========================================================================
-\section{Nombre de la Sección}
-\label{sec:seccion3}
-
-%-----------------------------------------------------------
-% CONTENIDO
-Texto de la sección.
-%-----------------------------------------------------------
-
-
-%===========================================================================
-% SECCIÓN FINAL: CONCLUSIONES
-%===========================================================================
-\section{Conclusiones}
-\label{sec:conclusiones}
-
-%-----------------------------------------------------------
-% CONTENIDO: Resumen de aportaciones y trabajo futuro
-Texto de conclusiones. Resumir los resultados obtenidos, las aportaciones
-del trabajo y las posibles líneas de trabajo futuro.
-%-----------------------------------------------------------
-
-
-%===========================================================================
-% BIBLIOGRAFÍA - NO MODIFICAR
-%===========================================================================
-\bibliographystyle{plain}
+\bibliographystyle{plainnat}
 \bibliography{Bibliografia}
+
+%===========================================================================
+% ANEXO A
+%===========================================================================
+\newpage
+\appendix
+\section{Anexo A}
+\label{anexo:Anexo}
 
 \end{document}
